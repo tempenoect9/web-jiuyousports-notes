@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游体育 · 场域与人的交汇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f6f8fb;
+            line-height: 1.7;
+            color: #1e2a36;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0b1724 0%, #1f2f3e 100%);
+            color: #e9edf2;
+            padding: 4.5rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(195, 225, 255, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-short {
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+            opacity: 0.75;
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title span {
+            display: inline-block;
+            border-bottom: 2px solid #a6c8e6;
+            padding-bottom: 0.1em;
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            max-width: 640px;
+            margin: 0 auto 0.5rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 3.5rem;
+        }
+
+        .intro-block {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.4rem 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.8rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.3rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 0 0 1px #dae4ef;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a2b3b;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #3e4f5e;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #1d5b8c;
+            font-weight: 500;
+        }
+
+        .inline-link {
+            color: #1d5b8c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #1d5b8c;
+            color: #0f3a5c;
+        }
+
+        .faq-summary {
+            background: #eef3f8;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            margin-top: 2.2rem;
+        }
+
+        .faq-summary h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #0f2a3e;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1a3d58;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: #2c4052;
+        }
+
+        .closing {
+            margin-top: 2.8rem;
+            padding: 1.8rem 0 0.5rem;
+            border-top: 1px solid #dce3eb;
+            text-align: center;
+        }
+
+        .closing p {
+            font-size: 1rem;
+            color: #3b4d60;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3.2rem 1rem 3rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 1.8rem 1rem 2.5rem;
+            }
+
+            .intro-block {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <p class="hero-short">一片场地，无数种叙事</p>
+            <h1 class="hero-title">与 <span>九游体育</span> 同行</h1>
+            <p class="hero-sub">运动的温度，藏在每一次配合与专注里。</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro-block">
+            <p>在体育的世界里，数字、路线与策略交织成一张网，而真正让这张网运转起来的，是人的参与。从校园操场到社区场馆，从清晨慢跑到傍晚球赛，运动始终是生活里最自然的对话方式。<a href="https://web-jiuyousports.com" class="inline-link">九游体育</a>所关注的，正是这种人与运动场域之间的互动——不是冷冰冰的数据堆叠，而是如何让体验更流畅、选择更清晰。</p>
+            <p>过去几年，体育参与的方式变得更加多元。一个人可以独自跑步，也可以加入线上社群互相激励；一支队伍可以在固定场馆训练，也能尝试新的场地与规则。平台的角色不再是单向提供信息，而是成为连接需求与资源的桥梁。</p>
+        </section>
+
+        <h2 style="font-weight: 500; font-size: 1.3rem; margin-bottom: 0.3rem; color: #1a2b3b;">几个值得留意的方向</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>⚙️ 信息整合</h3>
+                <p>赛事、场馆、运动社群……当选择变多，一个清晰的脉络比海量条目更重要。归纳与分类本身就是一种服务。</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌿 低门槛参与</h3>
+                <p>无论是初学者还是资深爱好者，好的平台应当让每个人都能找到合适的入口，而不是设置障碍。</p>
+            </div>
+            <div class="feature-card">
+                <h3>📌 场景适配</h3>
+                <p>室内外、单人团体、竞技休闲——不同场景需要不同的支持逻辑，灵活比完美更实用。</p>
+            </div>
+            <div class="feature-card">
+                <h3>🔍 真实反馈</h3>
+                <p>来自使用者的经验往往最可靠。场地是否拥挤、活动组织是否顺畅，这些细节构成信任的基础。</p>
+            </div>
+        </div>
+
+        <div class="faq-summary">
+            <h3>常见疑问 · 简短摘要</h3>
+            <div class="faq-item">
+                <strong>这个平台主要面向哪些人？</strong>
+                <p>日常运动爱好者、小型赛事组织者、以及寻找场地或同伴的个人。没有严格的划分，只要你对体育有兴趣即可。</p>
+            </div>
+            <div class="faq-item">
+                <strong>信息更新及时吗？</strong>
+                <p>平台依赖用户与运营方的共同维护，会标注信息的发布时间和来源，你可以据此判断参考价值。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否收费？</strong>
+                <p>基础浏览与查询功能免费开放。部分增值服务（如深度数据分析或定制方案）可能涉及费用，页面上会有明确标识。</p>
+            </div>
+        </div>
+
+        <div class="closing">
+            <p>运动的意义不在于被记录，而在于被感受。<br>希望<a href="https://web-jiuyousports.com" class="inline-link">九游体育</a>能成为你探索这个领域时，一个安静而可靠的参照。</p>
+        </div>
+    </main>
+
+</body>
+</html>
